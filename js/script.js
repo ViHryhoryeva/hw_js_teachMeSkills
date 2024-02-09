@@ -32,3 +32,12 @@ let b = 2;
 let c = 'белых медведей';
 console.log(`${a}${b} ${c}`);
 console.log(String(a) + String(b) + ' ' + c);
+
+// задача 5
+let wordOne = 'доступ';
+let wordTwo = 'морпех';
+let wordThree = 'наледь';
+let wordFour = 'попрек';
+let wordFive = 'рубило';
+let lengthWords = wordOne.length + wordTwo.length + wordThree.length + wordFour.length + wordFive.length;
+console.log(lengthWords);
