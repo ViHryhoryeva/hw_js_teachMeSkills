@@ -41,3 +41,11 @@ let wordFour = 'попрек';
 let wordFive = 'рубило';
 let lengthWords = wordOne.length + wordTwo.length + wordThree.length + wordFour.length + wordFive.length;
 console.log(lengthWords);
+
+// задача 6
+let one = true;
+let two = 20;
+let three = 'Привет';
+console.log(`Variable: ${one} , have type: ${typeof one}`);
+console.log(`Variable: ${two} , have type: ${typeof two}`);
+console.log(`Variable: ${three} , have type: ${typeof three}`);
