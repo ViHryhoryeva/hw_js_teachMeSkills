@@ -25,3 +25,10 @@ let userName = '42';
 console.log(+userName);
 console.log(Number(userName));
 console.log(parseInt(userName));
+
+// задача 4
+let a = 1;
+let b = 2;
+let c = 'белых медведей';
+console.log(`${a}${b} ${c}`);
+console.log(String(a) + String(b) + ' ' + c);
