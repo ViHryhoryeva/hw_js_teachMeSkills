@@ -49,3 +49,8 @@ let three = 'Привет';
 console.log(`Variable: ${one} , have type: ${typeof one}`);
 console.log(`Variable: ${two} , have type: ${typeof two}`);
 console.log(`Variable: ${three} , have type: ${typeof three}`);
+
+// задача 7
+let nameUser = prompt('Введите ваше имя:');
+let age = prompt('Введите ваш возраст:');
+console.log(nameUser + ', ' + age);
