@@ -54,3 +54,15 @@ console.log(`Variable: ${three} , have type: ${typeof three}`);
 let nameUser = prompt('Введите ваше имя:');
 let age = prompt('Введите ваш возраст:');
 console.log(nameUser + ', ' + age);
+
+// задача 8
+let d = 4;
+let e = 3;
+console.log(d);
+console.log(e);
+
+d = d + e;
+e = d - e;
+d = d - e;
+console.log(d);
+console.log(e);
