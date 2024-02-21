@@ -22,7 +22,7 @@ for (let i = 1; i <= 20; i++) {
     }
 }
 
-// залача 4
+// задача 4
 let key = true;
 let documents = true;
 let pen = true;
