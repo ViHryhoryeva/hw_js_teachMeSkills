@@ -46,9 +46,9 @@ console.log(lengthWords);
 let one = true;
 let two = 20;
 let three = 'Привет';
-console.log(`Variable: ${one} , have type: ${typeof one}`);
-console.log(`Variable: ${two} , have type: ${typeof two}`);
-console.log(`Variable: ${three} , have type: ${typeof three}`);
+console.log(`Variable: one , have type: ${typeof one}`);
+console.log(`Variable: two , have type: ${typeof two}`);
+console.log(`Variable: three , have type: ${typeof three}`);
 
 // задача 7
 let nameUser = prompt('Введите ваше имя:');
