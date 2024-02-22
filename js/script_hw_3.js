@@ -62,7 +62,7 @@ switch (direction) {
     console.log('На юг пойдешь, счастье найдешь');
     break;
     case 'север': 
-    console.log('На север пойдешь, много денег найдушь');
+    console.log('На север пойдешь, много денег найдешь');
     break;
     case 'запад':
     console.log('На запад пойдешь, верного друга найдешь');
@@ -73,3 +73,27 @@ switch (direction) {
     default: 
     prompt('Введите еще раз, в какую сторону света вы бы хотели б отправиться');
 }
+console.log(direction);
+
+// задача 8, 
+// получились две Н большими в слове "набережная"
+let userName = 'пОлИнА нАбЕрЕжНаЯ';
+let name1 = userName.toLowerCase().split(' ');
+console.log(name1);
+
+let name2 = name1[0].split(name1[0][0]).join(name1[0][0].toUpperCase());
+let name3 = name1[1].split(name1[1][0]).join(name1[1][0].toUpperCase());
+console.log(name2);
+console.log(name3);
+
+let hello = alert('Привет,' + ' ' + `${name2} ${name3}` + '!');
+
+// задача 9
+let user = Number(prompt('Введите число:'));
+let user2 = Number(prompt('Сколько отнять?'));
+let user3 = Number(prompt('Сколько прибавить?'));
+let user4 = Number(prompt('Насколько умножить'));
+let user5 = Number(prompt('Насколько разделить?'));
+// ((((6 - 10) + 5) * 20) / 2 = 110)
+let result = alert((((user - user2) + user3) * user4) / user5);
+console.log((((user - user2) + user3) * user4) / user5);
