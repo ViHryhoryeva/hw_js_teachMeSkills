@@ -97,3 +97,12 @@ let user5 = Number(prompt('Насколько разделить?'));
 // ((((6 - 10) + 5) * 20) / 2 = 110)
 let result = alert((((user - user2) + user3) * user4) / user5);
 console.log((((user - user2) + user3) * user4) / user5);
+
+// задача 10
+let str = '';
+let k = 0;
+while (k < 6) {
+    str = str.concat('#');
+    console.log(str);
+    k++;
+}
