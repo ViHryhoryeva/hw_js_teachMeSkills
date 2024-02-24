@@ -32,8 +32,8 @@ console.log(undefined + 1); //NaN
 console.log(' \t \n' - 2); //-2
 
 // задача 4
-let n = prompt('Введите число:');
-if (isFinite(n) || isNaN(n)) {
+let n = prompt('Введите любое число:');
+if (isNaN(n)) {
     alert('Ошибка, введено не число');
 } else if (n % 2 === 0) {
     console.log('Число n четное');
@@ -85,3 +85,15 @@ for (let i = 0; i <= num; i++) {
     }
 }
 console.log(sum);
+
+// задача 8
+let number = Number(prompt('Введите число:'));
+
+do {
+    if (number > 100) {
+        console.log(number);
+    } else {
+        number = Number(prompt('Введите число > 100'));
+    }
+} while (number <= 100 && number);
+console.log(number);
