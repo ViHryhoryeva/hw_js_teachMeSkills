@@ -54,3 +54,20 @@ function isEven() {
     }
 }
 console.log(isEven());
+
+// задача 4
+// Function Declaration
+function anyStr(str) {
+    str = prompt('Напишите что-нибудь');
+    let sumSymbol = str.length;
+    return console.log(`Строка '${str}' состоит из '${sumSymbol}' символов`);
+}
+anyStr();
+
+// Function Expression
+let anyStr2 = function(str) {
+    str = prompt('Напишите что-нибудь');
+    let sumSymbol = str.length;
+    return console.log(`Строка '${str}' состоит из '${sumSymbol}' символов`);
+}
+anyStr2();
