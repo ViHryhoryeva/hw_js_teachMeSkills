@@ -71,3 +71,23 @@ let anyStr2 = function(str) {
     return console.log(`Строка '${str}' состоит из '${sumSymbol}' символов`);
 }
 anyStr2();
+
+// задача 5
+function pow(number, n) {
+    number = Number(prompt('Число:'));
+    n = Number(prompt('Степень:'));
+    let result = number;
+    for (let i = 1; i < n; i++) {
+        result *= number;
+    }
+    return result;
+}
+console.log(pow());
+
+// задача 6
+function getStr(str) {
+    str = 'Я люблю javascript';
+    let newStr = str.split(' ').join('');
+    return newStr;
+}
+console.log(getStr());
