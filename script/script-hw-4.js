@@ -40,3 +40,25 @@ function getSumNumbers(number) {
     return sum;   
 }
 console.log(getSumNumbers(num));
+
+// задача 5
+function getSum2(a, b) {
+    sum = 0;
+    for (let i = a; i < b; i++) {
+        sum += i;
+    }
+    return sum;
+}
+console.log(getSum2(-1, 6));
+
+// задача 6
+function foo() {
+    console.log(foo);
+}
+function boo() {
+    console.log(boo);
+}
+function fooBoo(bool, foo, boo) {
+    return Boolean(bool) === true ? foo : boo;
+}
+console.log(fooBoo(100, foo, boo));
