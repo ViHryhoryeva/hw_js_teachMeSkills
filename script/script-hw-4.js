@@ -72,3 +72,13 @@ function isTriangle(a, b, c) {
     }
 }
 console.log(isTriangle(4, 5, 10));
+
+// задача 8
+function breakChocolate(n, m) {
+ if ( n === m === 1 || n <= 0 || m <= 0) {
+    return 0;
+ } else {
+    return (n - 1) + (m - 1);
+ } 
+}
+console.log(breakChocolate(2, 1));
