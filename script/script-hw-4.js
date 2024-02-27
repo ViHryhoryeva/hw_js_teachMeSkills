@@ -53,12 +53,22 @@ console.log(getSum2(-1, 6));
 
 // задача 6
 function foo() {
-    console.log(foo);
+    console.log('foo');
 }
 function boo() {
-    console.log(boo);
+    console.log('boo');
 }
 function fooBoo(bool, foo, boo) {
-    return Boolean(bool) === true ? foo : boo;
+    bool === true ? foo() : boo();
 }
-console.log(fooBoo(100, foo, boo));
+fooBoo(false, foo, boo);
+
+// задача 7
+function isTriangle(a, b, c) {
+    if ((a + b >= c) && (a + c >= b) && (b + c >= a)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isTriangle(4, 5, 10));
