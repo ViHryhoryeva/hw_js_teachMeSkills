@@ -79,3 +79,49 @@ function validator() {
     }    
 }
 validator();
+
+// задача 7
+let objGoalsDigit = {
+    count1: 2,
+    count2: 5,
+}
+
+function convertGoalsDigitToGoalsNew(objGoalsDigit) {
+    let objGoalsNew = {
+        count1: '',
+        count2: '',
+    }
+    objGoalsNew.count1 = getCountGoalsWords(objGoalsDigit.count1);
+    objGoalsNew.count2 = getCountGoalsWords(objGoalsDigit.count2);
+    return objGoalsNew;
+}
+
+function getCountGoalsWords(key) {
+    switch (key) {
+        case 0:
+            return 'ноль';
+        case 1:
+            return 'один';
+        case 2:
+            return 'два';
+        case 3:
+            return 'три';
+        case 4:
+            return 'четыре';
+        case 5:
+            return 'пять';
+        case 6:
+            return 'шесть';
+        case 7:
+            return 'семь';
+        case 8:
+            return 'восемь';
+        case 9:
+            return 'девять';
+        default:
+            break;
+    }
+}
+    
+let objGoalsNew = convertGoalsDigitToGoalsNew(objGoalsDigit);
+console.log(`${objGoalsNew.count1} : ${objGoalsNew.count2}`);
