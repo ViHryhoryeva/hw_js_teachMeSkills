@@ -29,6 +29,10 @@ function deleteElem2() {
 deleteElem2();
 console.log(deleteElem2());
 
+const numbers3 = [5, 43, 63, 23, 90];
+numbers3.length = 0;
+console.log(numbers);
+
 // задача 4
 const students = ['Polina', 'Dasha', 'Masha'];
 console.log(students);
@@ -45,3 +49,15 @@ for (let i = 0; i < cats.length; i++) {
 for ( let cat of cats) {
     console.log(cat);
 }
+
+// задача 6
+const evenNumbers = [2, 4, 6, 8, 10];
+const oddNumbers = [1, 3, 5, 7, 9];
+const numbersGroup = evenNumbers.concat(oddNumbers);
+console.log(numbersGroup, 'Индекс числа 8:' + ' ' + numbersGroup.indexOf(8));
+
+
+// задача 7
+const binary = [0, 0, 0, 0];
+let str = binary.join('1');
+console.log(str);
