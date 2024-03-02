@@ -125,3 +125,58 @@ function getCountGoalsWords(key) {
     
 let objGoalsNew = convertGoalsDigitToGoalsNew(objGoalsDigit);
 console.log(`${objGoalsNew.count1} : ${objGoalsNew.count2}`);
+
+// задача 8
+let student1 = {
+    name: 'Polina',
+    age: 27,
+}
+let student2 = {
+    name: 'Polina',
+    age: 27,
+}
+function comparingObjects(obj1, obj2) {
+    let keys1 = Object.keys(obj1);
+    let keys2 = Object.keys(obj2);
+
+    if (keys1.length !== keys2.length) {
+        return false;
+    }
+    for ( let key of  keys1) {
+        const value1 = obj1[key];
+        const value2 = obj2[key];
+        const isObjects =  isObject(value1) && isObject(value2);
+
+        if ((isObjects && !comparingObjects(value1, value2)) || (!isObjects && value1 !== value2)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+let isObject = function(object) {
+    return object != null && typeof object === "object";
+  }
+
+console.log(JSON.stringify(student1) === JSON.stringify(student2));
+console.log(comparingObjects(student1, student2));
+
+// задача 9
+let animals = {
+    cat: {
+    name: 'Енчик',
+    age: 3,
+    },
+
+    dog: {
+    name: 'Орео',
+    age: 2,
+    }
+}
+
+function getBird() {
+    animals.bird?.name;
+}
+
+console.log(getBird());
+console.log(animals);
