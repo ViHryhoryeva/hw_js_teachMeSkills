@@ -61,3 +61,56 @@ console.log(numbersGroup, 'Индекс числа 8:' + ' ' + numbersGroup.inde
 const binary = [0, 0, 0, 0];
 let str = binary.join('1');
 console.log(str);
+
+// задача 8
+let word = prompt('Введите слово:');
+function ispalindrome(test) {
+    for (let i = 0; i < Math.trunc(test.length / 2); i++) {
+        if (test[i] === test[(test.length - 1) - i]) {
+            return 'Это палиндром';
+        } else {
+            return 'Это не палиндром';
+        }
+    }
+}
+console.log(ispalindrome(word));
+
+// задача 9
+const matrix = [
+    [12, 98, 78, 65, 23],
+    [54, 76, 98, 43, 65],
+    [13, 324, 65, 312],
+    [9092, 22, 45, 90000],
+]
+
+function getAverageValueSum() {
+    let sum = 0;
+    let count = 0;
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            sum += matrix[i][j];
+            count++;
+            console.log(count);
+        }
+    }
+    return sum / count;
+}
+console.log(getAverageValueSum(matrix));
+
+// задача 10
+const mixedNumbers = [-14, 24, -89, 43, 0 , -1, 412, 4];
+let numbersPlus = [];
+let numbersMinus = [];
+function getNumber() {
+    for (let i = 0; i < mixedNumbers.length; i++) {
+        if (mixedNumbers[i] >= 0) {
+            numbersPlus.push(mixedNumbers[i]);
+        } else {
+            numbersMinus.push(mixedNumbers[i]);
+        }
+    }
+}
+getNumber();
+console.log(mixedNumbers);
+console.log(numbersPlus);
+console.log(numbersMinus);
