@@ -114,3 +114,18 @@ getNumber();
 console.log(mixedNumbers);
 console.log(numbersPlus);
 console.log(numbersMinus);
+
+// задача 11
+let array = [];
+let newArray = [];
+function getNewArray() {
+    for (let i = 0; i < 5; i++) {
+        array[i] = Math.floor(Math.random() * 100);
+    }
+    for (key of array) {
+        newArray.push(key ** 3);
+    }
+}
+getNewArray();
+console.log(array);
+console.log(newArray);
