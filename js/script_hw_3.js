@@ -29,30 +29,29 @@ let pen = true;
 let apple = false;
 let orange = true;
 
-let shouldGoToWork = apple || orange && key && documents && pen;
+let shouldGoToWork = (apple || orange) && key && documents && pen;
 console.log(shouldGoToWork);
 
 // задача 5
 let i = prompt('Введите число');
-
-if (i % 5 == 0) {
+if (i % 3 == 0 && i % 5 == 0) {
+    console.log('FizBuz');
+} else if (i % 5 == 0) {
     console.log('Fiz');
 } else if (i % 3 == 0) {
     console.log('Buz');
-} else if (i % 3 == 0 && i % 5 == 0) {
-    console.log('FizBuz');
 } else {
     console.log('Число не делится на 3 и 5');
 }
 
 // задача 6
 let j = prompt('Введите ваш возраст:');
-if (j > 18) {
+if (16 <= j <= 18) {
+    console.log('Можешь выкурить сигаретку, только маме не говори');
+} else if (j > 18) {
     console.log('Попей пивка');
 } else if (j < 18) {
     console.log('Пей колу');
-} else if (16 <= j <= 18) {
-    console.log('Можешь выкурить сигаретку, только маме не говори');
 }
 
 // задача 7
