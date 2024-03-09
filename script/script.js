@@ -51,3 +51,76 @@ const runError = () => {
     return alert('Пароль не совпадает');
 }
 confirmPassword('123', runSuccess, runError);
+
+// Задача 4
+const numbers = [32, -7, 74, 0, -46, -2, 101, -13];
+
+numbers.forEach(item => {
+    if (item > 0) {
+        console.log(item);
+    }
+});
+
+let numbersNew = numbers.map(Math.abs)
+console.log(numbersNew);
+
+let zero = numbers.find(item => {
+    return item === 0;
+});
+console.log(zero);
+
+
+let number = numbers.filter(item => {
+    return item < 0; 
+})
+console.log(number);
+
+let sum = numbers.reduce((a, b) => {
+    return a + b;
+})
+console.log(sum);
+
+// Задача 5
+let func = ((x,y) => {
+    x = 108;
+    y = 45;
+    let coords = { x, y };
+    console.log(coords);
+})();
+
+// Задача 6
+const element = {
+    name: 'div',
+    content: 'Hello world',
+    styles: {
+    fontSize: '12px',
+    backgroundColor: 'gray'
+    },
+    show: function () {
+    this.styles.display = 'block';
+    },
+    hide: function () {
+    this.styles.display = 'none';
+    }
+}
+function HtmlElement(name, content, styles) {
+    this.name = name;
+    this.content = content;
+    this.styles = styles;
+}
+let example = new HtmlElement('p', 'qweertty', {one: 1, two: 2});
+console.log(example);
+
+// Задача 7
+const user = { 
+    userName: ''
+};
+function changeUserName(newUserName) {
+    this.userName = newUserName;
+    console.log(this.userName);
+}
+
+changeUserName.call(user, 'Vika');
+changeUserName.apply(user, ['Katya']);
+let changeUserNameBound = changeUserName.bind(user, 'Maks');
+changeUserNameBound();
