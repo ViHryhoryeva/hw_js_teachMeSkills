@@ -124,3 +124,68 @@ changeUserName.call(user, 'Vika');
 changeUserName.apply(user, ['Katya']);
 let changeUserNameBound = changeUserName.bind(user, 'Maks');
 changeUserNameBound();
+
+// ДЗ
+// Задача 1
+const fibonacci = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
+fibonacci.forEach(item => {
+    console.log(item);
+});
+
+fibonacci.forEach(function getItem(item) {
+    console.log(item);
+});
+
+// Задача 2
+const users = ['Darya', 'Masha', 'Denis', 'Vitaliy', 'Polina', 'Anton'];
+let count = 0;
+const newUsers = users.map(item => {
+    count++;
+    return `member ${count}: ${item}`;
+})
+console.log(newUsers);
+const newUsers2 = users.map(function newUsersTwo(item) {
+    count++;
+    return `member ${count}: ${item}`;
+})
+console.log(newUsers2);
+
+// Задача 3
+const numbersThree = [7, -4, 32, -90, 54, 32, -21];
+let numbersThreeNew = numbersThree.filter(item => {
+    return item > 0;
+})
+console.log(numbersThreeNew);
+
+let numbersThreeNewFunc = numbersThree.filter(function getPositiveNumbers(item) {
+    if (item > 0) {
+        return item;
+    }
+})
+console.log(numbersThreeNewFunc);
+
+// Задача 4
+const fibonacci2 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
+let sumFibonacci2 = fibonacci.reduce((a, b) => {
+    return a + b;
+})
+console.log(sumFibonacci2);
+let sumFibonacci = fibonacci.reduce(function getSumFibonacci(a, b) {
+    return a + b;
+})
+console.log(sumFibonacci);
+
+// Задача 5
+const numbersFive = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5];
+let evenNumber = numbersFive.find(item => {
+    if (item % 2 === 0) {
+        return item;
+    }
+})
+console.log(evenNumber);
+let evenNumber2 = numbersFive.find(function getEvenNumber(item) {
+    if (item % 2 === 0) {
+        return item;
+    }
+})
+console.log(evenNumber2);
