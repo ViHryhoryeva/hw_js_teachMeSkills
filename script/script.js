@@ -189,3 +189,37 @@ let evenNumber2 = numbersFive.find(function getEvenNumber(item) {
     }
 })
 console.log(evenNumber2);
+
+// Задача 6
+function Student(name, salary, rate) {
+    this.name = name;
+    this.salary = salary;
+    this.rate = rate;
+
+    this.availableCredit = function() {
+        switch(rate) {
+            case 'A': return salary * 12;
+            case 'B': return salary * 9;
+            case 'C': return salary * 6;
+            case 'D': return 0;
+        }
+    }
+}
+
+let student1 = new Student('Vika', 1400, 'A');
+let student2 = new Student('Lena', 900, 'B');
+let student3 = new Student('Sergey', 1100, 'C');
+let student4 = new Student('Nikita', 1200, 'D');
+let student5 = new Student('Aleksey', 2000, 'A');
+
+const students = [student1, student2, student3, student4, student5];
+
+function calcAverageCredit(students) {
+    let sumCredit = 0;
+    for (let student of students) {
+        sumCredit = sumCredit + student.availableCredit();
+    }
+    return sumCredit / students.length;
+}
+console.log(calcAverageCredit(students));
+console.log(students);
