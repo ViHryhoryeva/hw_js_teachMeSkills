@@ -223,3 +223,14 @@ function calcAverageCredit(students) {
 }
 console.log(calcAverageCredit(students));
 console.log(students);
+
+// Задача 7
+function getString(str) {
+    str = 'This website is for losers LOL!';
+    let str2;
+    for (let i = 0; i < str.length; i++) {
+        str2 = str.replace(/['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']/g, '');
+    }
+    return str2;
+}
+console.log(getString());
