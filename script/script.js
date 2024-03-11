@@ -234,3 +234,15 @@ function getString(str) {
     return str2;
 }
 console.log(getString());
+
+// Задача 8
+const capitalizeFirstLetter = (k) => k.charAt(0).toUpperCase() + k.slice(1);
+const accum = (str) => str.split('').map((word, i) => 
+capitalizeFirstLetter(Array(i + 2).join(word).toLowerCase())).join('-');
+console.log(accum('abcdef'));
+
+// Задача 9
+let highAndLow = '1 2 3 4 5 6 7 8 9 -3';
+const arr = highAndLow.split(' ');
+console.log(`Min: ${Math.min(...arr)}, Max: ${Math.max(...arr)}`);
+
