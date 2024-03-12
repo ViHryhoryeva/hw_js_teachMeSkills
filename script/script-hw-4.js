@@ -43,8 +43,8 @@ console.log(getSumNumbers(num));
 
 // задача 5
 function getSum2(a, b) {
-    sum = 0;
-    for (let i = a; i < b; i++) {
+    let sum = 0;
+    for (let i = a; i <= b; i++) {
         sum += i;
     }
     return sum;
