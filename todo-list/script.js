@@ -1,90 +1,151 @@
 
 const root = document.getElementById('root');
 
-const headerDiv = document.createElement('div');
-    headerDiv.tagName = 'div';
-    headerDiv.classList.add('header');
-    root.appendChild(headerDiv);
+const headerForm = document.createElement('form');
+    headerForm.classList.add('header');
+    root.appendChild(headerForm);
 
 const headerDelete = document.createElement('button');
     headerDelete.classList.add('header__btn');
     headerDelete.innerHTML = 'Delete ALL';
-    headerDiv.appendChild(headerDelete);
+    headerForm.appendChild(headerDelete);
 
 const headerText = document.createElement('input');
     headerText.setAttribute('type', 'text');
     headerText.className = 'header__text';
     headerText.setAttribute('placeholder', 'Enter todo ...');
-    headerDiv.appendChild(headerText);
+    headerForm.appendChild(headerText);
 
 const headerAdd = document.createElement('button');
     headerAdd.className = 'header__btn';
     headerAdd.innerHTML = 'Add';
-    headerDiv.appendChild(headerAdd);
+    headerForm.appendChild(headerAdd);
 
-const mainDiv = document.createElement('div');
-    mainDiv.classList.add('main');
-    root.appendChild(mainDiv);
+const mainUl = document.createElement('ul');
+    mainUl.classList.add('main');
+    root.appendChild(mainUl);
 
-const containerDiv = document.createElement('div');
-    containerDiv.classList.add('container');
-    mainDiv.appendChild(containerDiv);
+let taskList = {};
+let count = 0;
 
-const mainYesBtn = document.createElement('button');
-    mainYesBtn.classList.add('main__yes');
-    mainYesBtn.innerHTML = '&check;';
-    containerDiv.appendChild(mainYesBtn);
+function Task(id, name) {
+    this.id = id;
+    this.name = name;
+    this.dateTime = new Date();
+    this.isDone = false;
+}
 
-const mainTextInput = document.createElement('input');
-    mainTextInput.classList.add('main__text');
-    mainTextInput.setAttribute('type', 'text');
-    mainTextInput.setAttribute('placeholder', 'Todo text');
-    containerDiv.appendChild(mainTextInput);
+function addTask(name) {
+    count++;
+    let task = new Task(count, name);
+    taskList[task.id] = task;
+    showTaskLisk();
+}
 
-const containerBtn = document.createElement('div');
-    containerBtn.classList.add('container__btn');
-    containerDiv.appendChild(containerBtn);
+function deleteTask(id) {
+    delete taskList[id];
+    showTaskLisk();
+}
 
-const mainClose = document.createElement('button');
-    mainClose.classList.add('main__close');
-    mainClose.innerHTML = 'X';
-    containerBtn.appendChild(mainClose);
+function setDone(id, isDone) { 
+    if (isDone) {
+        taskList[id].isDone = true;
+    } else {
+        taskList[id].isDone = false;
+    }
+    showTaskLisk();
+}
 
-const mainDate = document.createElement('input');
-    mainDate.classList.add('main__date');
-    mainDate.setAttribute('type', 'date');
-    containerBtn.appendChild(mainDate);
+function deleteAllTask() {
+    for (let key in taskList) {
+        delete taskList[key];
+    }
+    showTaskLisk();
+}
 
-const containerDiv2 = document.createElement('div');
-    containerDiv2.classList.add('container');
-    mainDiv.appendChild(containerDiv2);
+function datetimeFormat(datetime) {
+    let year = datetime.getFullYear();
+    let month = datetime.getMonth();
+    let day = datetime.getDate();
+    let hour = datetime.getHours();
+    let min = datetime.getMinutes();
+    let sec = datetime.getSeconds();
 
-const mainYesBtn2 = document.createElement('button');
-    mainYesBtn2.classList.add('main__yes');
-    mainYesBtn2.innerHTML = '&check;';
-    containerDiv2.appendChild(mainYesBtn2);
+    return `${day}-${month}-${year} ${hour}:${min}:${sec}`;
+}
 
-const mainTextInput2 = document.createElement('input');
-    mainTextInput2.classList.add('main__text');
-    mainTextInput2.setAttribute('type', 'text');
-    mainTextInput2.setAttribute('placeholder', 'Todo text');
-    containerDiv2.appendChild(mainTextInput2);
+function showTaskLisk() {
 
-const containerBtn2 = document.createElement('div');
-    containerBtn2.classList.add('container__btn');
-    containerDiv2.appendChild(containerBtn2);
+    while (mainUl.firstChild) {
+        mainUl.removeChild(mainUl.firstChild);
+    }
 
-const mainClose2 = document.createElement('button');
-    mainClose2.classList.add('main__close');
-    mainClose2.innerHTML = 'X';
-    containerBtn2.appendChild(mainClose2);
+    for (let key in taskList) {
+        // console.log(taskList[key]);
+        const container = document.createElement('li');
+        container.classList.add('container');
+        if (taskList[key].isDone === true) {
+            container.style.backgroundColor = '#ce93d8';
+        }
+        mainUl.appendChild(container);
+        
+        const mainCheckbox = document.createElement('input');
+        mainCheckbox.setAttribute('type', 'checkbox');
+        mainCheckbox.classList.add('main__yes');
+        mainCheckbox.setAttribute('id', 'check');
 
-const mainDate2 = document.createElement('input');
-    mainDate2.classList.add('main__date');
-    mainDate2.setAttribute('type', 'date');
-    containerBtn2.appendChild(mainDate2);
+        if (taskList[key].isDone) {
+            mainCheckbox.checked = true;
+        }
+        container.appendChild(mainCheckbox);
+        const mainLabel = document.createElement('label');
+        mainLabel.setAttribute('for', 'check');
+        container.appendChild(mainLabel);
 
+        const mainText = document.createElement('p');
+        mainText.classList.add('main__text');
+        mainText.textContent = taskList[key].name;
+        if (taskList[key].isDone === true) {
+            mainText.style.textDecoration = 'line-through';
+        }
+        container.appendChild(mainText);
+        
+        const containerBtn = document.createElement('div');
+        containerBtn.classList.add('container__btn');
+        container.appendChild(containerBtn);
+        
+        const mainClose = document.createElement('button');
+        mainClose.setAttribute('id', taskList[key].id);
+        mainClose.classList.add('main__close');
+        mainClose.innerHTML = 'X';
+        containerBtn.appendChild(mainClose);
+        
+        const mainDate = document.createElement('p');
+        mainDate.classList.add('main__date');
+        mainDate.textContent = datetimeFormat(taskList[key].dateTime);
+        containerBtn.appendChild(mainDate);
 
+        container.classList.add('active');
 
+        mainClose.addEventListener('click', () => {
+            deleteTask(taskList[key].id);
+        });
 
+        mainCheckbox.addEventListener('change', () => {
+            setDone((taskList[key].id), mainCheckbox.checked);
+        });
+    }
+}     
 
+headerAdd.addEventListener('click', () => {
+    let taskName = headerText.value;
+    addTask(taskName);
+});
+
+headerDelete.addEventListener('click', (e) => {
+    deleteAllTask();
+})
+
+headerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+})
