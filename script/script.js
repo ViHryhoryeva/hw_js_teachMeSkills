@@ -64,16 +64,20 @@ console.log(str);
 
 // задача 8
 let word = prompt('Введите слово:');
-function ispalindrome(test) {
+function isPalindrome(test) {
     for (let i = 0; i < Math.trunc(test.length / 2); i++) {
-        if (test[i] === test[(test.length - 1) - i]) {
-            return 'Это палиндром';
-        } else {
-            return 'Это не палиндром';
+        if (test[i] !== test[(test.length - 1) - i]) {
+            return false;
         }
     }
+    return true;
 }
-console.log(ispalindrome(word));
+if (isPalindrome(word)) {
+    alert('Это палиндром');
+} else {
+    alert('Это не палиндром');
+}
+console.log(word);
 
 // задача 9
 const matrix = [
