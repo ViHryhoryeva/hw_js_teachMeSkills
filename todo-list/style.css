@@ -40,6 +40,7 @@
     border-radius: 5px;
 }
 .container {
+    position: relative;
     border-radius: 10px;
     border: solid black 2px;
     padding: 10px 0 10px;
@@ -52,26 +53,25 @@
 .container.active {
     display: flex;
 }
-.main__yes,
-.main__yes ~ label::before {
-    display: none;
+.main__yes {
+    opacity: 0;
 }
-.main__yes:checked ~ label::before { 
-    content: '\2713';
-    color:black;
-}
-.main__yes ~ label::before {
+label::before {
     text-align: center;
-    position: relative;
     border-radius: 5px;
     background-color: #AB47BC;
     border: solid black 2px;
     cursor: pointer;
     padding: 5px 10px;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     display: inline-block;
     content: '';
+    position: absolute;
+}
+label::before .main__yes:checked { 
+    content: '\2713';
+    color:black;
 }
 .main__text {
     border-radius: 5px;
